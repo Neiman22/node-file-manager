@@ -1,3 +1,4 @@
+import { currentlyPath } from "./index.js";
 import { goToDir, goUpperDir, printInConsole } from "./commands/navigation.js";
 
 const commandMap = {
@@ -12,6 +13,7 @@ export const commandHandler = (input) => {
 
   if (handler) {
     handler(...args);
+    currentlyPath();
   } else {
     console.error('Invalid input');
   }
