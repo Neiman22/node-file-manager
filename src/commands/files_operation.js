@@ -1,6 +1,5 @@
 import { createReadStream } from 'fs';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
+import { rename, writeFile } from 'fs/promises';
 
 export const readFile = (fileName) => {
   const readStream = createReadStream(fileName, 'utf-8');
@@ -10,11 +9,18 @@ export const readFile = (fileName) => {
 }
 
 export const createFile = async (fileName) => {
-  const currentDir = process.cwd();
-  const createdFile = join(currentDir, fileName);
   try {
-    await writeFile(createdFile, '', {flag: 'wx'});
+    await writeFile(fileName, '', {flag: 'wx'});
     console.log(`File ${fileName} created`);
+  } catch (err) {
+    console.error('Operation failed', err.message);
+  }
+}
+
+export const renameFile = async (oldFileName, newFileName) => {
+  try {
+    await rename(oldFileName, newFileName);
+    console.log(`File ${oldFileName} renamed to ${newFileName}`);
   } catch (err) {
     console.error('Operation failed', err.message);
   }

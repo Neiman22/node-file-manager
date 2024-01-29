@@ -1,6 +1,6 @@
 import { currentlyPath } from "./index.js";
 import { goToDir, goUpperDir, printListOfFiles } from "./commands/navigation.js";
-import { readFile, createFile } from "./commands/files_operation.js";
+import { readFile, createFile, renameFile } from "./commands/files_operation.js";
 
 const commandMap = {
   up: goUpperDir,
@@ -8,6 +8,7 @@ const commandMap = {
   ls: printListOfFiles,
   cat: readFile,
   add: createFile,
+  rn: renameFile,
 }
 
 export const commandHandler = (input) => {
