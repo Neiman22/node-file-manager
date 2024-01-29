@@ -1,10 +1,10 @@
 import { currentlyPath } from "./index.js";
-import { goToDir, goUpperDir, printInConsole } from "./commands/navigation.js";
+import { goToDir, goUpperDir, printListOfFiles } from "./commands/navigation.js";
 
 const commandMap = {
   up: goUpperDir,
   cd: goToDir,
-  ls: printInConsole,
+  ls: printListOfFiles,
 }
 
 export const commandHandler = (input) => {
@@ -15,6 +15,6 @@ export const commandHandler = (input) => {
     handler(...args);
     currentlyPath();
   } else {
-    console.error('Invalid input');
+    console.error('Invalid command');
   }
 } 
