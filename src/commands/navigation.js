@@ -15,8 +15,8 @@ export const goUpperDir = () => {
 export const goToDir = (newDir) => {
   try {
     process.chdir(newDir);
-  } catch (error) {
-    console.error('Invalid input');
+  } catch (err) {
+    console.error('Invalid input', err.message);
   }
 }
 
@@ -35,7 +35,7 @@ export const printListOfFiles = async () => {
 
     displayTable(dirList, fileList)
   } catch (err) {
-    console.error('Operation failed');
+    console.error('Operation failed', err.message);
   }
 }
 
