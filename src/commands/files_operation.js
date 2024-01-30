@@ -51,3 +51,12 @@ export const moveFile = async (fileName, newDir) => {
     console.error('Operation failed', err.message);
   }
 }
+
+export const removeFile = async (fileName) => {
+  try {
+    await rm(fileName);
+    console.log(`File ${fileName} removed`);
+  } catch (err) {
+    console.error('Operation failed', err.message);
+  }
+}
