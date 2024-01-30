@@ -41,7 +41,7 @@ export const printListOfFiles = async () => {
 
 const displayTable = (arrFolders, arrFiles) => {
   console.log('-----------------------------------------------------------------');
-  console.log('| Index  |               Name               |         Type      |');
+  console.log('| Index  |               Name               |       Type        |');
   console.log('-----------------------------------------------------------------');
 
   let n = 1;
