@@ -3,6 +3,7 @@ import { goToDir, goUpperDir, printListOfFiles } from "./commands/nav_opreation.
 import { readFile, createFile, renameFile, copyFile, moveFile, removeFile } from "./commands/files_operation.js";
 import { osOperation } from "./commands/os_operation.js";
 import { calculationHash } from "./commands/hash_operation.js";
+import { compressFile } from "./commands/zlib_operation.js";
 
 const commandMap = {
   up: goUpperDir,
@@ -16,6 +17,7 @@ const commandMap = {
   rm: removeFile,
   os: osOperation,
   hash: calculationHash,
+  compress: compressFile,
 }
 
 export const commandHandler = async (input) => {
