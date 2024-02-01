@@ -1,7 +1,8 @@
 import { currentlyPath } from "./index.js";
-import { goToDir, goUpperDir, printListOfFiles } from "./commands/navigation.js";
+import { goToDir, goUpperDir, printListOfFiles } from "./commands/nav_opreation.js";
 import { readFile, createFile, renameFile, copyFile, moveFile, removeFile } from "./commands/files_operation.js";
 import { osOperation } from "./commands/os_operation.js";
+import { calculationHash } from "./commands/hash_operation.js";
 
 const commandMap = {
   up: goUpperDir,
@@ -13,7 +14,8 @@ const commandMap = {
   cp: copyFile,
   mv: moveFile,
   rm: removeFile,
-  os: osOperation
+  os: osOperation,
+  hash: calculationHash,
 }
 
 export const commandHandler = async (input) => {
@@ -22,8 +24,8 @@ export const commandHandler = async (input) => {
 
   if (handler) {
     await handler(...args);
-    currentlyPath();
   } else {
     console.error('Invalid command');
   }
+  currentlyPath();
 } 
